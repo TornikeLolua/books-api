@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS reviews;
+
+CREATE TABLE reviews (
+  id       INTEGER PRIMARY KEY AUTOINCREMENT,
+  reviewer TEXT    NOT NULL,
+  rating   INTEGER NOT NULL,
+  book_id  INTEGER NOT NULL,
+  comment  TEXT,
+  FOREIGN KEY (book_id) REFERENCES books (id),
+  CONSTRAINT rating_range CHECK (rating >= 0 AND rating <= 5)
+);

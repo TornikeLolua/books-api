@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Longlist API</title>
+</head>
+<body>
+
+  <h1>Browse Authors</h1>
+  <a href="/api/v1/authors">All Authors</a>
+
+  <h1>Details for Selected Authors</h1>
+  <ul>
+    <li><a href="/api/v1/authors/6">6</a></li>
+    <li><a href="/api/v1/authors/12">12</a></li>
+    <li><a href="/api/v1/authors/18">18</a></li>
+    <li><a href="/api/v1/authors/24">24</a></li>
+    <li><a href="/api/v1/authors/30">30</a></li>
+  </ul>
+
+  <h1>Browse Books</h1>
+  <form id="booksForm">
+    Format:
+    <select id="format">
+      <option value="hardcover">Hard Cover</option>
+      <option value="paperback">Paperback</option>
+      <option value="ebook">Ebook</option>
+    </select>
+    Page: <input type="number" id="page" value="0" min="0" />
+    <button type="submit">submit</button>
+  </form>
+
+  <h1>Details for Selected Books</h1>
+  <ul>
+    <li><a href="/api/v1/books/2">2</a></li>
+    <li><a href="/api/v1/books/4">4</a></li>
+    <li><a href="/api/v1/books/8">8</a></li>
+    <li><a href="/api/v1/books/16">16</a></li>
+    <li><a href="/api/v1/books/32">32</a></li>
+  </ul>
+
+  <h1>Write a Review</h1>
+  <div>
+    Your name: <input type="text" id="reviewer" value="Jordan Miller" />
+    ID of book you'd like to review: <input type="number" id="book_id" value="10" />
+    Your rating of the book: <input type="number" id="rating" value="3" min="0" max="5" />
+    Your comments: <textarea id="comment">Great book, a real page-turner</textarea>
+    <button id="submitReview">Submit</button>
+  </div>
+
+  <h1>Selected Reviews By ID</h1>
+  <ul>
+    <li><a href="/api/v1/reviews/1">1</a></li>
+    <li><a href="/api/v1/reviews/2">2</a></li>
+    <li><a href="/api/v1/reviews/3">3</a></li>
+  </ul>
+
+  <script>
+    document.getElementById('booksForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const format = document.getElementById('format').value;
+      const page = document.getElementById('page').value;
+      window.location.href = `/api/v1/books?format=${format}&page=${page}`;
+    });
+
+    document.getElementById('submitReview').addEventListener('click', async function () {
+      const reviewer = document.getElementById('reviewer').value;
+      const book_id = document.getElementById('book_id').value;
+      const rating = document.getElementById('rating').value;
+      const comment = document.getElementById('comment').value;
+
+      const response = await fetch('/api/v1/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ reviewer, book_id, rating, comment }),
+      });
+      const data = await response.json();
+      alert(`Review created! ID: ${data.review.id}`);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+{
+  "info": {
+    "_postman_id": "d112e4f7-0987-4b11-a30a-ce0c37aa2649",
+    "name": "New Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52888190"
+  },
+  "item": [
+    {
+      "name": "Get All Authors",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://vigilant-potato-x5qw4qqwv97pcpgg9-3000.app.github.dev/api/v1/authors",
+          "protocol": "https",
+          "host": [
+            "vigilant-potato-x5qw4qqwv97pcpgg9-3000",
+            "app",
+            "github",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "authors"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Author By ID:",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://vigilant-potato-x5qw4qqwv97pcpgg9-3000.app.github.dev/api/v1/authors/24",
+          "protocol": "https",
+          "host": [
+            "vigilant-potato-x5qw4qqwv97pcpgg9-3000",
+            "app",
+            "github",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "authors",
+            "24"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Books Collection",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://vigilant-potato-x5qw4qqwv97pcpgg9-3000.app.github.dev/api/v1/books?format=hardcover&page=1",
+          "protocol": "https",
+          "host": [
+            "vigilant-potato-x5qw4qqwv97pcpgg9-3000",
+            "app",
+            "github",
+            "dev"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "books"
+          ],
+          "query": [
+            {
+              "key": "format",
+              "value": "hardcover"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Book By ID",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Create Review",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
